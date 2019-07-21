@@ -26,8 +26,6 @@ public class Matrix {
 			for(int i=rows-1;i>=0;i--) {
 				int count=j;
 				if(count<cols) {
-					
-					
 					if(i>=0) {
 						al.add(arr[i][count]);
 					}
