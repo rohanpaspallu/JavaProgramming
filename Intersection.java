@@ -95,7 +95,7 @@ public class Intersection {
 		System.out.println(max_y+" "+min_y);
 		int count=0;
 		
-		count = recursive_ver(ver_al,hor_al,min_x,max_x,min_y,max_y,count);
+		int f_count = recursive_ver(ver_al,hor_al,min_x,max_x,min_y,max_y,count);
 		
 		
 		
@@ -109,7 +109,7 @@ public class Intersection {
 //			}
 //		}
 		
-		System.out.println(count);
+		System.out.println(f_count);
 		
 	}
 
@@ -117,22 +117,67 @@ public class Intersection {
 			int min_y, int max_y, int count) {
 		// TODO Auto-generated method stub
 		
-		for(int i=0;i<ver_al.size();i=i+2) {
-			String str1 = ver_al.get(i);
-			String str2 = ver_al.get(i+1);
-			String[] t1 = str1.split(" ");
-			String[] t2 = str2.split(" ");
-			if((Integer.parseInt(t1[0])>=min_x && Integer.parseInt(t1[0])<=max_x) && (Integer.parseInt(t1[1])>=min_y && Integer.parseInt(t1[1])<=max_y)&& (Integer.parseInt(t2[1])>=min_y && Integer.parseInt(t2[1])<=max_y)) {
-				
-				for(int j=0;i<hor_al.size();j=j+2) {
-					String str1_h = hor_al.get(i);
-					String str2_h = hor_al.get(i+1);
-					String[] t1_h = str1_h.split(" ");
-					String[] t2_h = str2_h.split(" ");
-					if((Integer.parseInt(t1_h[0])>=min_x && Integer.parseInt(t1_h[0])<=max_x) && (Integer.parseInt(t1_h[1])>=min_y && Integer.parseInt(t1_h[1])<=max_y)&& (Integer.parseInt(t2_h[0])>=min_x && Integer.parseInt(t2_h[0])<=max_x)) {
-						count++;
-//						System.out.println(count);
-					}
+		if(ver_al.size()<=2) {
+			for(int i=2;i<ver_al.size();i=i+2) {
+				String str1 = ver_al.get(i);
+				String str2 = ver_al.get(i+1);
+				String[] t1 = str1.split(" ");
+				String[] t2 = str2.split(" ");
+				if((Integer.parseInt(t1[0])>=min_x && Integer.parseInt(t1[0])<=max_x) && (Integer.parseInt(t1[1])>=min_y && Integer.parseInt(t1[1])<=max_y)&& (Integer.parseInt(t2[1])>=min_y && Integer.parseInt(t2[1])<=max_y)) {
+					count++;
+				}
+			}
+			
+			for(int i=0;i<hor_al.size();i=i+2) {
+				String str1 = hor_al.get(i);
+				String str2 = hor_al.get(i+1);
+				String[] t1 = str1.split(" ");
+				String[] t2 = str2.split(" ");
+				if((Integer.parseInt(t1[0])>=min_x && Integer.parseInt(t1[0])<=max_x) && (Integer.parseInt(t1[1])>=min_y && Integer.parseInt(t1[1])<=max_y)&& (Integer.parseInt(t2[0])>=min_x && Integer.parseInt(t2[0])<=max_x)) {
+					count++;
+				}
+			}
+		}
+		
+		else if(hor_al.size()<=2) {
+			for(int i=0;i<ver_al.size();i=i+2) {
+				String str1 = ver_al.get(i);
+				String str2 = ver_al.get(i+1);
+				String[] t1 = str1.split(" ");
+				String[] t2 = str2.split(" ");
+				if((Integer.parseInt(t1[0])>=min_x && Integer.parseInt(t1[0])<=max_x) && (Integer.parseInt(t1[1])>=min_y && Integer.parseInt(t1[1])<=max_y)&& (Integer.parseInt(t2[1])>=min_y && Integer.parseInt(t2[1])<=max_y)) {
+					count++;
+				}
+			}
+			
+			for(int i=2;i<hor_al.size();i=i+2) {
+				String str1 = hor_al.get(i);
+				String str2 = hor_al.get(i+1);
+				String[] t1 = str1.split(" ");
+				String[] t2 = str2.split(" ");
+				if((Integer.parseInt(t1[0])>=min_x && Integer.parseInt(t1[0])<=max_x) && (Integer.parseInt(t1[1])>=min_y && Integer.parseInt(t1[1])<=max_y)&& (Integer.parseInt(t2[0])>=min_x && Integer.parseInt(t2[0])<=max_x)) {
+					count++;
+				}
+			}
+		}
+		else {
+			for(int i=0;i<ver_al.size();i=i+2) {
+				String str1 = ver_al.get(i);
+				String str2 = ver_al.get(i+1);
+				String[] t1 = str1.split(" ");
+				String[] t2 = str2.split(" ");
+				if((Integer.parseInt(t1[0])>=min_x && Integer.parseInt(t1[0])<=max_x) && (Integer.parseInt(t1[1])>=min_y && Integer.parseInt(t1[1])<=max_y)&& (Integer.parseInt(t2[1])>=min_y && Integer.parseInt(t2[1])<=max_y)) {
+					count++;
+				}
+			}
+			
+			for(int i=0;i<hor_al.size();i=i+2) {
+				String str1 = hor_al.get(i);
+				String str2 = hor_al.get(i+1);
+				String[] t1 = str1.split(" ");
+				String[] t2 = str2.split(" ");
+				if((Integer.parseInt(t1[0])>=min_x && Integer.parseInt(t1[0])<=max_x) && (Integer.parseInt(t1[1])>=min_y && Integer.parseInt(t1[1])<=max_y)&& (Integer.parseInt(t2[0])>=min_x && Integer.parseInt(t2[0])<=max_x)) {
+					count++;
 				}
 			}
 		}
@@ -145,3 +190,14 @@ public class Intersection {
 //1 1
 //50 20 60
 //30 40 80
+
+//2 2
+//25 25 80
+//75 25 80
+//25 25 80
+//75 25 80
+
+//1 2
+//50 0 100
+//50 0 75
+//50 25 100
