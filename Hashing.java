@@ -40,7 +40,18 @@ public class Hashing {
 		
 		int[]ans = new int[size];
 		
-//		recursive(arr,ans,size);
+		
+		
+		for(int i=0;i<ans.length;i++) {
+			System.out.println(ans[i]);
+		}
+//		System.out.println(al);
+	}
+
+	private static void recursive(int[] arr, int[] ans, int size) {
+		// TODO Auto-generated method stub
+		
+		recursive(arr,ans,size);
 
 		for(int i=0;i<arr.length;i++) {
 			int j = arr[i]%size;
@@ -50,21 +61,10 @@ public class Hashing {
 			
 			else {
 				int temp = arr[i]%10;
-				int dummy = arr[i]/10;
-				
+				arr[i] = arr[i]/10;
+				recursive(arr, ans, size);
 			}
 		}
-		
-		
-		for(int i=0;i<ans.length;i++) {
-			System.out.println(ans[i]);
-		}
-//		System.out.println(al);
 	}
-
-//	private static void recursive(int[] arr, int[] ans, int size) {
-//		// TODO Auto-generated method stub
-//		
-//	}
 
 }
