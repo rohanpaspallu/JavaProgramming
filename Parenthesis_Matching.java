@@ -1,9 +1,7 @@
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class Parenthesis_Matching {
-
-	public static void main(String[] args) {
+public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner in = new Scanner(System.in);
 		int no = Integer.parseInt(in.nextLine());
@@ -22,34 +20,56 @@ public class Parenthesis_Matching {
 						ll.push(temp.charAt(j));
 					}
 					else if(temp.charAt(j)==')') {
-						if(ll.peek()=='(') {
-							ll.pop();
+						if(ll.size()==0) {
+							ll.push(temp.charAt(j));
+							break;
 						}
 						else {
-							ll.push(temp.charAt(j));
+							if(ll.peek()=='(') {
+								ll.pop();
+							}
+							else {
+								ll.push(temp.charAt(j));
+							}
 						}
+						
 					}
 					
 					else if(temp.charAt(j)==']') {
-						if(ll.peek()=='[') {
-							ll.pop();
+						if(ll.size()==0) {
+							ll.push(temp.charAt(j));
+							break;
 						}
 						else {
-							ll.push(temp.charAt(j));
+							if(ll.peek()=='[') {
+								ll.pop();
+							}
+							else {
+								ll.push(temp.charAt(j));
+							}
 						}
+						
 					}
 					
 					else if(temp.charAt(j)=='}') {
-						if(ll.peek()=='{') {
-							ll.pop();
+						if(ll.size()==0) {
+							ll.push(temp.charAt(j));
+							break;
 						}
 						else {
-							ll.push(temp.charAt(j));
+							if(ll.peek()=='{') {
+								ll.pop();
+							}
+							else {
+								ll.push(temp.charAt(j));
+							}
 						}
+						
 					}
 				}
 			}
-			//System.out.println(ll);
+			
+//			System.out.println(ll);
 			if(ll.isEmpty()) {
 				System.out.println("TRUE");
 			}
@@ -59,9 +79,6 @@ public class Parenthesis_Matching {
 			
 			ll.clear();
 		}
-		
-		
-	}
 
 }
 
