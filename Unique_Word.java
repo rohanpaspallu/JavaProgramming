@@ -11,13 +11,13 @@ public class Unique_Word {
 		Scanner in = new Scanner(System.in);
 		String str = in.nextLine();
 		str = str.toLowerCase();
-		String []strArr = str.split(" ");
+		String []strArr = str.split("\\s+");
 		
 		
 		ArrayList<String>dummy = new ArrayList<String>(Arrays.asList(strArr));
-		System.out.println(dummy);
+//		System.out.println(dummy);
 		dummy.removeAll(Arrays.asList("",null));
-		System.out.println(dummy);
+//		System.out.println(dummy);
 		
 		
 		Object[] strArr2 = dummy.toArray();
@@ -55,7 +55,7 @@ public class Unique_Word {
 			}
 		}
 		
-		System.out.println(count);
+		System.out.print(count);
 		
 	}
 
