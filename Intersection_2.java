@@ -39,10 +39,12 @@ public class Intersection_2 {
 				int y = Integer.parseInt(t2[0]);
 				int x1 = Integer.parseInt(t2[1]);
 				int x2 = Integer.parseInt(t2[2]);
-				
-				if(y>=y1 && y<=y2 && x>=x1 && x<=x2) {
+				if((x1<=x && x<=x2)||(x2<=x&& x<=x1)||(y1<=y && y<=y2)||(y2<=y&& y<=y1)) {
 					count++;
 				}
+//				if( (y>=y1 && y<=y2 && x>=x1 && x<=x2) || (y>=y2 && y<=y1 && x>=x2 && x<=x1)) {
+//					count++;
+//				}
 				else {
 					continue;
 				}
